@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Asap:400,500,700');
-
-* {
-    margin: 0;
-    padding: 0;
-}
+@import url('https://fonts.googleapis.com/css?family=Raleway:600&display=swap');
 
 body {
     background: #282C34;
@@ -20,4 +16,14 @@ header {
 header > h1 {
     color: #282C34;
     font-weight: bold;
+}
+
+.weatherContainer {
+    font-family: 'Raleway', sans-serif;
+    width: 500px;
+    height: 225px;
+    background: #383e4a;
+    margin: 10vh auto;
+    padding: 10px;
+    box-shadow: 5px 5px 30px 5px #222222;
 }

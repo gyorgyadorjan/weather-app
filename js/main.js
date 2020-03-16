@@ -27,7 +27,23 @@ async function main() {
         "iconSrc": `http://openweathermap.org/img/wn/${weatherAPIJSON.weather[0].icon}@2x.png`,
     };
 
-    // TODO: show data on screen, then hide loading screen
+    // Populate weather container with information
+    $("h5").append(weather.cityAndCountry);
+    $("img").attr({
+        src: weather.iconSrc,
+        alt: weather.temperatureDescription,
+    });
+    $("h2").append(`${weather.temperature} °C`);
+    $("h6").append(weather.temperatureDescription);
+
+    $(".sk-chase").animate({opacity: 0}, 800, function() {
+        // Animation complete
+        // Hide loading screen
+        $(".sk-chase").addClass("d-none");
+
+        // Show weather container
+        $(".weatherContainer").removeClass("d-none");
+    });
 
     console.timeEnd("runtime");
 }
