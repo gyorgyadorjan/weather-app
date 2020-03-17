@@ -5,8 +5,11 @@ async function main() {
     let ipAPI = await fetch("http://ip-api.com/json/?fields=49362");
     let ipAPIJSON = await ipAPI.json();
 
+    // Error handling for geo location
     if (ipAPIJSON.status === "fail") {
-        // TODO: error handling => ipAPIJSON.message
+        $(".error > p").append(`Error while requesting data from IP-API!<br/>Error message: ${ipAPIJSON.message}`);
+        $(".sk-chase").addClass("d-none");
+        $(".error").removeClass("d-none");
         return;
     }
 
@@ -14,8 +17,11 @@ async function main() {
     let weatherAPI = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${ipAPIJSON.lat}&lon=${ipAPIJSON.lon}&units=metric&APPID=c10b45d9c21fc69d07bb0361ca76bd05`);
     let weatherAPIJSON = await weatherAPI.json();
 
+    // Error handling for weather data
     if (weatherAPIJSON.cod !== 200) {
-        // TODO: error handling => weatherAPIJSON.message
+        $(".error > p").append(`Error while requesting data from openweathermap!<br/>Error message: ${weatherAPIJSON.message}`);
+        $(".sk-chase").addClass("d-none");
+        $(".error").removeClass("d-none");
         return;
     }
 
