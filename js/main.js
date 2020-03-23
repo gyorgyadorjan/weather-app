@@ -35,7 +35,7 @@ async function main() {
     // Extract the needed information
     let weather = {
         "cityAndCountry": `${weatherAPIJSON.name}, ${weatherAPIJSON.sys.country}`,
-        "temperature": Math.floor(weatherAPIJSON.main.temp),
+        "temperature": Math.floor(weatherAPIJSON.main.temp * 10) / 10,
         "temperatureDescription": weatherAPIJSON.weather[0].description,
         "iconSrc": `https://openweathermap.org/img/wn/${weatherAPIJSON.weather[0].icon}@2x.png`,
     };
