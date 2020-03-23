@@ -21,7 +21,6 @@ header > h1 {
 .weatherContainer {
     font-family: 'Raleway', sans-serif;
     max-width: 500px;
-    height: 225px;
     background: #383e4a;
     margin: 10vh auto;
     padding: 10px;
