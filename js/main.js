@@ -21,7 +21,7 @@ async function main() {
     if (!position) return;
 
     // API call for weather data
-    let weatherAPI = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&APPID=c10b45d9c21fc69d07bb0361ca76bd05`);
+    let weatherAPI = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&APPID=c10b45d9c21fc69d07bb0361ca76bd05`);
     let weatherAPIJSON = await weatherAPI.json();
 
     // Error handling for weather data
@@ -37,7 +37,7 @@ async function main() {
         "cityAndCountry": `${weatherAPIJSON.name}, ${weatherAPIJSON.sys.country}`,
         "temperature": Math.floor(weatherAPIJSON.main.temp),
         "temperatureDescription": weatherAPIJSON.weather[0].description,
-        "iconSrc": `http://openweathermap.org/img/wn/${weatherAPIJSON.weather[0].icon}@2x.png`,
+        "iconSrc": `https://openweathermap.org/img/wn/${weatherAPIJSON.weather[0].icon}@2x.png`,
     };
 
     // Populate weather container with information
